@@ -45,3 +45,4 @@
 #
 #
 # print(f"{'не ' * (not func(int(input()), int(input())))}делится")
+
