@@ -46,3 +46,11 @@
 #
 # print(f"{'не ' * (not func(int(input()), int(input())))}делится")
 
+# print(bool('abc'))
+# print(bool(list(range(10))))
+# print(type([1, 2, 'python']))  #<class 'list'>
+# print(type(True))  #<class 'bool'>
+# print(bool(''))
+
+# var = None
+# print(type(var))
