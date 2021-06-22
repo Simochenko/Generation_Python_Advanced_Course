@@ -116,7 +116,6 @@ Sample Output 1:
 [1, 2, 3]
 [1, 2, 3, 4]'''
 
-
 # n = int(input())
 # my_list = []
 # for i in range(n):
@@ -146,7 +145,6 @@ Sample Output 1:
 соответствующую строку треугольника Паскаля.
 
 Примечание 2. Графическая иллюстрация формирования треугольника Паскаля.'''
-
 
 # x = int(input())
 # def PrintPasTriangle(rows):
@@ -327,11 +325,12 @@ Sample Output 4:
 
 # from itertools import product
 #
+#
 # def sublists(lst):
-#     for doslice in product([True, False], repeat=len(lst) - 1):
+#     for doslice in product([True, False], repeat=len(lst) -1):
 #         slices = []
 #         start = 0
-#         for i, slicehere in enumerate(doslice, 1):
+#         for i, slicehere in enumerate(doslice, 0):
 #             if slicehere:
 #                 slices.append(lst[start:i])
 #                 start = i
@@ -341,6 +340,6 @@ Sample Output 4:
 #
 # from pprint import pprint
 #
-# mylist = input().split()
-# pprint(list(sublists( mylist)))
+# mylist = input()
+# pprint(list(sublists(mylist)))
 
