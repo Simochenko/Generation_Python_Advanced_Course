@@ -126,17 +126,16 @@ Sample Output:
 # n, m, k, x, y, z = [int(input()) for i in '......']
 # print(n + m + k - y - x + z)
 
+
+
 n, m, k, x, y, z, t, a = (int(input()) for _ in range(8))
-
-
+print(n + m + k - y - x + z)
+l1=x-t
+print((n + m - l1 - t)+(a-((x+y+z)-(n+m+k)+t)))
 
 
 
 print(a-((x+y+z)-(n+m+k)+t))
-
-
-
-
 
 
 

@@ -39,6 +39,7 @@ Sample Output 2:
 
 # n, m = map(int, input().split())
 # [print(*[['.', '*'][(i + j)% 2] for j in range(m)]) for i in range(n)]
+import numpy as np
 
 '''Побочная диагональ
 На вход программе подается натуральное число nn. Напишите программу, которая создает матрицу размером 
@@ -566,4 +567,82 @@ Sample Output 1:
 #         print(str(mas[c][r]).ljust(3), end='')
 #     print()
 #
+# n, m = map(int,input().split())
+# arr1 = np.arange(n)
+# arr2 = np.arange(1,(n+1))
+# print((arr1[:,None] + arr2))
 
+
+'''Заполнение 2
+На вход программе подаются два натуральных числа n и m. Напишите программу, которая создает матрицу размером n×m 
+заполнив её в соответствии с образцом.
+
+Формат входных данных
+На вход программе на одной строке подаются два натуральных числа n и m — количество строк и столбцов в матрице.
+
+Формат выходных данных
+Программа должна вывести указанную матрицу в соответствии с образцом.
+
+Примечание. При выводе элементов матрицы, отводите ровно 3 символа на каждый элемент. Для этого используйте строковый
+ метод ljust().
+
+Sample Input 1:
+
+3 7
+Sample Output 1:
+
+1  4  7  10 13 16 19
+2  5  8  11 14 17 20
+3  6  9  12 15 18 21'''
+
+
+# n, m = map(int,input().split())
+# r = 1
+# mas = []
+# for j in range(m):
+#     mas.append([])
+#     for i in range(n):
+#         mas[j].append(r)
+#         r += 1
+# for r in range(n):
+#     for c in range(m):
+#         print(str(mas[c][r]).ljust(3), end='')
+#     print()
+
+# n, m = [int(x) for x in input().split()]
+#
+# res = [[str(i + j * n + 1).ljust(2) for j in range(m)] for i in range(n)]
+#
+# for x in res:
+#     print(*x)
+
+#
+# n, m = list(map(int, input().split()));
+#
+# for i in range(n):
+#     num = i + 1;
+#     for j in range(m):
+#         print(str(num).ljust(3), end = '');
+#         num += n;
+#     print()
+
+# n, m = [int(x) for x in input().split()]
+#
+# for j in range(n):
+#     print(' '.join([str(i + 1 % m+1*j).ljust(3) for i in range(m)][::]))
+
+n, m = map(int, input().split())
+c = 1
+l = 0
+a = [[0 for _ in range(m)] for _ in range(n)]
+for i in range(m+n-1):
+    for j in range(n):
+        if ((i-j) > -1) and ((i-j) < m):
+            a[j][i-j]+=c
+            l+=1
+            c+=1
+    l = 0
+for o in a:
+  for o2 in o:
+    print(str(o2).rjust(4), end = '')
+  print()

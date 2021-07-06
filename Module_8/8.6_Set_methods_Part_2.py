@@ -341,6 +341,7 @@ A ^= B
 A.symmetric_difference_update(B)
 Записывает в A симметрическую разность множеств A и B"""
 from functools import reduce
+from operator import and_
 
 '''Количество совпадающих
 На вход программе подаются две строки текста, содержащие числа. Напишите программу, которая определяет количество 
@@ -461,22 +462,60 @@ Sample Output 2:
 # print(*sorted(map(int, set(input().split()) - set(input().split()))))
 
 
+'''Общие цифры
+На вход программе подается натуральное число nn, а затем nn различных натуральных чисел, каждое на отдельной строке.
+ Напишите программу, которая выводит все общие цифры в порядке возрастания у всех введенных чисел.
+
+Формат входных данных
+На вход программе подаются натуральное число n \ge 1n≥1, а затем nn различных натуральных чисел, каждое на отдельной 
+строке.
+
+Формат выходных данных
+Программа должна вывести цифры в соответствии с условием задачи. Если общих цифр нет, то ничего выводить не нужно.
+
+Sample Input 1:
+
+4
+12345
+236
+3452222
+9302
+Sample Output 1:
+
+2 3
+Sample Input 2:
+
+6
+1234567890
+87654321
+34567890
+987234356
+1236789
+987532
+Sample Output 2:
+
+3 7 8'''
 
 # n = int(input())
+# a = [{int(i) for i in input()} for _ in range(n)]
+# print(*sorted(set.intersection(*a)))
+
+
+# print(*sorted(set.intersection(*map(set, [set(input()) for _ in range(int(input()))]))))
+
+
+# n = int(input())
+# numbers = [input() for _ in range(n)]
 #
+# num_set = set(numbers[0]).intersection(*numbers)
+# print(*sorted(num_set))
+
+# n, my_set = int(input()), set(input())
 #
-# intersection = set.intersection(*[set(map(int, input().split())) for _ in range(n)])
-# print(intersection)
-
-
-
-
-
-
-
-
-
-
+# for _ in range(n - 1):
+#     my_set = my_set & set(input())
+#
+# print(*sorted(my_set, key=int))
 
 
 
