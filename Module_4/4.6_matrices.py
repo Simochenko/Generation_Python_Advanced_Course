@@ -669,8 +669,106 @@ Sample Output 1:
 #     x = row.pop(0)
 #     row.append(x)
 
-n, m = map(int, input().split())
-a = [i for i in range(1, m+1)]
-for i in range(n):
-    print(*a)
-    a = a[1:] + a[:1]
+# n, m = map(int, input().split())
+# a = [i for i in range(1, m+1)]
+# for i in range(n):
+#     print(*a)
+#     a = a[1:] + a[:1]
+
+
+# r, c = map(int, input().split())
+#
+# mas = [[0] * c for _ in range(r)]
+#
+# i = 0
+# j = 0
+#
+# num = 1
+#
+# right = True
+# down = False
+# left = False
+# up = False
+#
+#
+# def zero(mas):
+#     for row in mas:
+#         if 0 in row:
+#             return True
+#     return False
+#
+#
+# while zero(mas):
+#     if mas[i][j] == 0:
+#         mas[i][j] = num
+#         num += 1
+#
+#     if j < c - 1 and mas[i][j + 1] == 0 and right:
+#         j += 1
+#
+#     elif i < r - 1 and mas[i + 1][j] == 0 and down:
+#         i += 1
+#
+#     elif j >= 0 and mas[i][j - 1] == 0 and left:
+#         j -= 1
+#
+#     elif i >= 0 and mas[i - 1][j] == 0 and up:
+#         i -= 1
+#     elif right:
+#         right = False
+#         down = True
+#
+#     elif down:
+#         down = False
+#         left = True
+#
+#     elif left:
+#         left = False
+#         up = True
+#
+#     elif up:
+#         up = False
+#         right = True
+#
+# for row in mas:
+#     print(*row)
+
+n, c = map(int, input().split()) #строки и столбцы
+m = [[0 for _ in range(c)] for _ in range(n)]
+i_start, i_end, j_start, j_end = 0, n, 0, c   # интервалы (границы) дыижения по матрице
+di, dj = 1, 1  # направления движения
+k = 1  # начальное значение заполнителя
+i = 0  # костыль для задания первичного движения по первому ряду
+while k <= n*c:
+    # зполнение вправо
+    for j in range(j_start, j_end, dj):
+        m[i][j] = str(k).ljust(3)
+        k += 1
+    dj = -1  # смена направления движения
+    i_start += 1  # обрезание заполненного ряда сверху
+    if k > n * c:  # прерываение цикла если заолнена вся матрица
+        break
+    # заполнение вниз
+    for i in range(i_start, i_end, di):
+        m[i][j] = str(k).ljust(3)
+        k += 1
+    di = -1  # смена направления движения
+    j_end -= 1  # обрезание заполненного столбца справа
+    if k > n * c: # прерываение цикла если заолнена вся матрица
+        break
+    # заполнение влево
+    for j in range(j_end - 1, j_start - 1, dj):
+        m[i][j] = str(k).ljust(3)
+        k += 1
+    dj = 1  # смена направления движения
+    i_end -= 1 # обрезание заполненного ряда снизу
+    if k > n * c: # прерываение цикла если заолнена вся матрица
+        break
+    # заполнение вверх
+    for i in range(i_end - 1, i_start - 1, di):
+        m[i][j] = str(k).ljust(3)
+        k += 1
+    di = 1  # смена направления движения
+    j_start += 1 # обрезание заполненного столбца слева
+for i in m:
+    print(*i)

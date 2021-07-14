@@ -1,3 +1,8 @@
 https://habr.com/ru/post/319164/   Python: коллекции, часть 1/4: классификация, общие подходы и методы, конвертация
 
 https://docs.python.org/3/library/stdtypes.html#set       Документация по множествам
+
+
+https://habr.com/ru/post/432996/         Немного внутренностей словарей в CPython (и PyPy)
+
+https://github.com/python/cpython/blob/main/Objects/dictobject.c
