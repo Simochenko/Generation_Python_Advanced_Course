@@ -220,7 +220,8 @@ for value in squares.values():
 #
 # result = {i**2 for i in numbers}
 # print(result)
-
+import ast
+import urllib
 
 '''Дополните приведенный код, используя генератор, чтобы получить словарь result, состоящий из всех элементов словаря 
 colors, кроме тех, у которых значением является None.
@@ -474,7 +475,196 @@ students , где указан рост больше 167 см, а вес мен�
 
 Примечание. Выводить содержимое словаря result не нужно.'''
 
-tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15), (16, 17, 18), (19, 20, 21), (22, 23, 24), (25, 26, 27), (28, 29, 30), (31, 32, 33), (34, 35, 36)]
+# tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15), (16, 17, 18), (19, 20, 21), (22, 23, 24), (25, 26, 27), (28, 29, 30), (31, 32, 33), (34, 35, 36)]
+#
+# result = {x: tuple(y) for x, *y in tuples}
+# print(result)
 
-result = {x: tuple(y) for x, *y in tuples}
-print(result)
+
+# tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15), (16, 17, 18), (19, 20, 21), (22, 23, 24), (25, 26, 27), (28, 29, 30), (31, 32, 33), (34, 35, 36)]
+#
+# result = {i[0]: i[1:] for i in tuples}
+
+
+
+# tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15), (16, 17, 18), (19, 20, 21), (22, 23, 24), (25, 26, 27), (28, 29, 30), (31, 32, 33), (34, 35, 36)]
+#
+# result = {x[0]: (x[1], x[2]) for x in tuples}
+
+'''Дополните приведенный код, используя генератор, так чтобы получить словарь result , в котором ключом будет 
+позиция числа в списке numbers (начиная с 00), а значением – его квадрат.
+
+Примечание. Выводить содержимое словаря result не нужно.'''
+
+# numbers = [34, 10, -4, 6, 10, 23, -90, 100, 21, -35, -95, 1, 36, -38, -19, 1, 6, 87]
+# result = {i: numbers[i]**2 for i in range(len(numbers))}
+# print(result)
+
+
+# numbers = [34, 10, -4, 6, 10, 23, -90, 100, 21, -35, -95, 1, 36, -38, -19, 1, 6, 87]
+# result = {cnt: x ** 2 for cnt, x in enumerate(numbers)}
+
+'''В переменной s хранится строка пар число:слово. Дополните приведенный код, используя генератор, чтобы получить 
+словарь result , в котором числа будут ключами, а слова – значениями.
+
+Примечание 1. Ключи словаря должны быть целыми числами (иметь тип int), значения – строками (иметь тип str).
+
+Примечание 2. Выводить содержимое словаря result не нужно.'''
+# s = '1:men 2:kind 90:number 0:sun 34:book 56:mountain 87:wood 34:car 3:island 88:power 7:box 17:star 101:ice'
+#
+# result={}
+# result=(dict((int(k.strip()),v.strip()) for k,v in (p.split(':') for p in s.split(' '))))
+# print(result)
+#
+#
+# s = '1:men 2:kind 90:number 0:sun 34:book 56:mountain 87:wood 34:car 3:island 88:power 7:box 17:star 101:ice'
+#
+# result = {int(k): v for k, v in [s.split(':') for s in s.split()]}
+
+
+# s = '1:men 2:kind 90:number 0:sun 34:book 56:mountain 87:wood 34:car 3:island 88:power 7:box 17:star 101:ice'
+#
+# result = {int(i.split(':')[0]): i.split(':')[1] for i in s.split(' ')}
+
+
+# s = '1:men 2:kind 90:number 0:sun 34:book 56:mountain 87:wood 34:car 3:island 88:power 7:box 17:star 101:ice'
+# result = {int(i[0]): i[1] for i in [j.split(':') for j in s.split()]}
+
+
+
+# my_dict = {'C1': [10, 20, 30, 7, 6, 23, 90], 'C2': [20, 30, 40, 1, 2, 3, 90, 12], 'C3': [12, 34, 20, 21], 'C4': [22, 54, 209, 21, 7], 'C5': [2, 4, 29, 21, 19], 'C6': [4, 6, 7, 10, 55], 'C7': [4, 8, 12, 23, 42], 'C8': [3, 14, 15, 26, 48], 'C9': [2, 7, 18, 28, 18, 28]}
+# result = {k:v for k, v in my_dict.items() if  }
+# print(result)
+#
+# emails = {'nosu.edu': ['timyr', 'joseph', 'svetlana.gaeva', 'larisa.mamuk'],
+#           'gmail.com': ['ruslan.chaika', 'rustam.mini', 'stepik-best'],
+#           'msu.edu': ['apple.fruit', 'beegeek', 'beegeek.school'],
+#           'yandex.ru': ['surface', 'google'],
+#           'hse.edu': ['tomas-henders', 'cream.soda', 'zivert'],
+#           'mail.ru': ['angel.down', 'joanne', 'the.fame.moster']}
+# print(*emails, sep = '\n')
+
+
+
+# def compliment(Nucleotide):
+#     comp = []
+#     for i in Nucleotide:
+#         if i == "T":
+#             comp.append("A")
+#         if i == "A":
+#             comp.append("U")
+#         if i == "G":
+#             comp.append("C")
+#         if i == "C":
+#             comp.append("G")
+#
+#     return ''.join(comp)
+#
+# print(compliment(input()))
+
+
+# def coun(x):
+#     dct[x] = dct.get(x, 0) + 1
+#     return dct[x]
+#
+#
+# dct = {}
+# print(*[coun(k) for k in input().split()])
+
+# def count_letters(word):
+#   count = {}
+#   for letter in word:
+#     if letter not in count: count[letter] = 0
+#     count[letter] += 1
+#   return count
+#
+#
+#
+# score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2,
+#          "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3,
+#          "l": 1, "o": 1, "n": 1, "q": 10, "p": 3, "s": 1,
+#          "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4,
+#          "x": 8, "z": 10}
+#
+# def score_word(word):
+#   return sum([score[c] for c in word])
+#
+# print(score_word(input().lower()))
+
+
+# result=(dict[{'a': 1, 'b': 2}, {'b': 10, 'c': 100}, {'a': 1, 'b': 17, 'c': 50}, {'a': 5, 'd': 777}])
+# def merge(values):
+#     super_dict = {}
+#     for d in result:
+#         for k, v in d.iteritems():  # d.items() in Python 3+
+#             super_dict.setdefault(k, []).append(v)
+# print(merge())
+
+# from collections import defaultdict
+# customer_dic =defaultdict(lambda: defaultdict(int))
+# while 1:
+#     try:
+#         in_string =str(input())
+#     except EOFError:
+#         break
+#     if not in_string:
+#         break
+#
+#     customer, product, product_quantity = in_string.split()
+#     customer_dic[customer][product]=customer_dic[customer][product]+int(product_quantity)
+#
+# for i in sorted(customer_dic):
+#     print(i + ':')
+#     for j in sorted(customer_dic[i]):
+#         print(j, customer_dic[i][j])
+
+
+
+# customers = {}
+#
+# for line in  range(int(input())):
+#     name, good, qty = input().strip().split()
+#     if name not in customers:
+#         customers[name] = {good: int(qty)}
+#     elif good not in customers[name]:
+#         customers[name].update({good: int(qty)})
+#     else:
+#         customers[name].update({good: customers[name].get(good) + int(qty)})
+#
+#
+# for name in sorted(customers):
+#     print(name + ':')
+#     for good in sorted(customers[name]):
+#         print(good, customers[name][good])
+
+# from collections import defaultdict
+#
+# # dicts = [{'a': 1, 'b': 2}, {'b': 10, 'c': 100}, {'a': 1, 'b': 17, 'c': 50}, {'a': 5, 'd': 777}]
+# def merge(values):
+#     super_dict = defaultdict(set)  # uses set to avoid duplicates
+#
+#     for d in dicts:
+#         for k, v in d.items():  # use d.iteritems() in python 2
+#             super_dict[k].add(v)
+# print(merge(i))
+
+# emails = {'nosu.edu': ['timyr', 'joseph', 'svetlana.gaeva', 'larisa.mamuk'],
+#           'gmail.com': ['ruslan.chaika', 'rustam.mini', 'stepik-best'],
+#           'msu.edu': ['apple.fruit', 'beegeek', 'beegeek.school'],
+#           'yandex.ru': ['surface', 'google'],
+#           'hse.edu': ['tomas-henders', 'cream.soda', 'zivert'],
+#           'mail.ru': ['angel.down', 'joanne', 'the.fame.moster']}
+
+# def build_query_string(params):
+#     query = ''
+#     for key in params.keys():
+#         query += str(key) + '=' + str(params[key])
+#     return query
+# print(build_query_string({"per": 14, "page": 7}))
+
+# my_dict = {'C1': [10, 20, 30, 7, 6, 23, 90], 'C2': [20, 30, 40, 1, 2, 3, 90, 12], 'C3': [12, 34, 20, 21], 'C4': [22, 54, 209, 21, 7], 'C5': [2, 4, 29, 21, 19], 'C6': [4, 6, 7, 10, 55], 'C7': [4, 8, 12, 23, 42], 'C8': [3, 14, 15, 26, 48], 'C9': [2, 7, 18, 28, 18, 28]}
+# # res=dict((k, v) for k, v in my_dict.items() if all(x <20 for x in v))
+#
+#
+# print(dict((k, v) for k, v in my_dict.items() if  all(x < 20 for x in v)))
+
