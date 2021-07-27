@@ -647,15 +647,51 @@ FyRe8NN'''
 #     print(''.join(password))
 
 
-# import random
+'''Для игры в бинго требуется карточка размером 5×5, содержащая различные (уникальные) целые числа от 1 до 75
+(включительно), при этом центральная клетка является пустой (она заполняется числом 0).
+
+Игра-лото "Cупер Бинго". Играть в лотерею онлайн бесплатно
+
+Напишите программу, которая с помощью модуля random генерирует и выводит случайную карточку для игры в бинго.
+
+Примечание 1. Для наглядности рекомендуем отводить на вывод каждого числа ровно 3 символа. Для этого используйте 
+строковый метод ljust().
+
+Примечание 2. Пример возможного ответа:
+
+1  16 31 46 61
+10 30 42 47 68
+3  18 0  48 63
+9  19 34 49 70
+5  20 35 50 65
+Возможны и другие способы генерации карточки для игры в бинго.'''
+
+# from random import sample
 #
-#
-# def make_bingo():
-#     spisok_chisel = random.sample(range(1, 76), 24)
-#     poluchaetsya = spisok_chisel[:12] + [0] + spisok_chisel[12:]
-#     return tuple(poluchaetsya[:5]), tuple(poluchaetsya[5:10]), tuple(poluchaetsya[10:15]), tuple(
-#         poluchaetsya[15:20]), tuple(poluchaetsya[20:25])
-#
-# print(make_bingo())
+# nums = iter(sample(list(range(1, 76)), 24))
+# [print(*('0  ' if i == j == 2 else str(next(nums)).ljust(3) for j in range(5))) for i in range(5)]
 
 
+# from random import sample as r
+#
+# n = r(range(1, 75), 24)
+# n = n[:12] + [0] + n[12:]
+# [print(''.join(str(n[i * 5 + j]).ljust(3) for j in range(5))) for i in range(5)]
+
+
+# from random import sample
+# line = sample(range(1, 76), 25)
+# card = [line[i: i + 5] for i in (0, 5, 10, 15, 20)]
+# card[2][2] = 0
+# for line in card:
+#     line = [str(x).ljust(3, ' ') for x in line]
+#     print(*line, sep='')
+
+
+
+# from random import *
+# numbers = set(sample([i for i in range(1, 76)], 25))
+# s = [[numbers.pop() for _ in range(5)] for _ in range(5)]
+# s[2][2] = 0
+# for row in s:
+#     print(*(str(k).ljust(3) for k in row))
