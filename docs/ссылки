@@ -6,3 +6,7 @@ https://docs.python.org/3/library/stdtypes.html#set       Документаци
 https://habr.com/ru/post/432996/         Немного внутренностей словарей в CPython (и PyPy)
 
 https://github.com/python/cpython/blob/main/Objects/dictobject.c
+
+
+
+https://docs.python.org/3/library/operator.html Подробнее прочитать про модуль operator можно в официальной документации.
