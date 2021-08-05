@@ -520,3 +520,258 @@ New York is the capital of USA, population equal 331002651 people.
 # population = [145_934_462, 331_002_651, 80_345_321, 67_886_011, 65_273_511, 1_380_004_385]
 # for x in zip(capitals,countries,population):
 #     print(f'{x[0]} is the capital of {x[1]}, population equal {x[2]} people.')
+
+
+'''Корректный IP-адрес
+IP-адрес – уникальный числовой идентификатор устройства в компьютерной сети, работающий по протоколу TCP/IP.
+
+В 44-й версии IP-адрес представляет собой 3232-битное число. Адрес записывается в виде четырёх десятичных чисел 
+(октетов) со значением от 00 до 255255 (включительно), разделённых точками, например, 192.168.1.2192.168.1.2.
+
+Напишите программу с использованием встроенной функции all() для проверки корректности IP-адреса: все ли октеты в
+ IP-адресе – числа со значением от 00 до 255255.
+
+Формат входных данных
+На вход программе подается строка в формате x.x.x.x, где x – непустой набор символов 0-9, a-z.
+
+Формат выходных данных
+Программа должна вывести True если введенная строка – корректный IP-адрес и False в противном случае.
+
+Примечание. Ведущие нули следует игнорировать:
+
+0001 = 1
+006 = 6
+0213 = 213
+0000 = 0
+00345 = 345
+...
+Sample Input 1:
+
+10.0.1.1
+Sample Output 1:
+
+True
+Sample Input 2:
+
+10.1.1.a
+Sample Output 2:
+
+False
+Sample Input 3:
+
+10.1.1.260
+Sample Output 3:
+
+False'''
+
+# def validate_ip(s):
+#     a = s.split('.')
+#     if len(a) != 4:
+#         return False
+#     for x in a:
+#         if not x.isdigit():
+#             return False
+#         i = int(x)
+#         if i < 0 or i > 255:
+#             return False
+#     return True
+#
+#
+# print(validate_ip(input()))
+
+# print(all(map(lambda n: n.isdigit() and 0 <= int(n) <= 255, input().split('.'))))
+
+# print(all(list(map(lambda x:x.isdigit() and int(x)<=255,input().split('.')))))
+
+
+# octets = [int(i) if set(i) <= set('0987654321') else -1 for i in input().split('.')]
+# print(all(0 <= x <= 255 for x in octets))
+
+# print(all(list(map(lambda x:x.isdigit() and int(x)<=255,input().split('.')))))
+
+
+# print(all([True if i.isdigit() and 0<=int(i)<=255 else False for i in input().split('.')]))
+
+'''Хороший пароль
+Хороший пароль по условиям этой задачи состоит как минимум из 77 символов, содержит хотя бы одну цифру, заглавную и 
+строчную букву. Напишите программу со встроенной функцией any() для определения хорош ли введенный пароль.
+
+Формат входных данных
+На вход программе подаётся одна строка текста.
+
+Формат выходных данных
+Программа должна вывести YES, если строка – хороший пароль, и NO в противном случае.
+
+Sample Input 1:
+
+abcABC9
+Sample Output 1:
+
+YES
+Sample Input 2:
+
+abAB34
+Sample Output 2:
+
+NO'''
+
+
+# def password_level(password):
+#     C = "0123456789"
+#     f1 = f2 = f3 = False
+#
+#     if len(password) < 7:
+#         s = "NO"
+#         return s
+#
+#     elif password.isdigit():
+#         s = "NO"
+#         return s
+#
+#     for i in password:
+#         if i.isupper():
+#             f1 = True
+#
+#         elif i.islower():
+#             f2 = True
+#
+#         elif i in C:
+#             f3 = True
+#
+#     if f1 * f2 * f3:
+#         s = "YES"
+#
+#     elif f1 ^ f2 and not f3:
+#         s = "NO"
+#
+#     else:
+#         s = "NO"
+#
+#     return s
+# print(password_level(input()))
+
+
+# s = input()
+# print('YES' if all((any(i.isupper() for i in s),
+#                     any(i.islower() for i in s),
+#                     any(i.isdigit() for i in s),
+#                     len(s) >= 7)) else 'NO')
+
+# s = input()
+# digits = any(map(lambda char: char.isdigit(), s))
+# small = any(map(lambda cha: cha.isalpha() and cha == cha.lower(), s))
+# big = any(map(lambda ch: ch.isalpha() and ch == ch.upper(), s))
+# dl = len(s)
+#
+# print('YES' if all((digits, small, big, dl >= 7)) else 'NO')
+
+
+# (lambda p: print(('NO','YES')[len(p)>6 and all(map(lambda f: any(map(f, p)), (str.isdigit, str.islower, str.isupper)))]))(input())
+
+# def low(s):
+#     return any(map(lambda x: x.islower(), s))
+#
+# def up(s):
+#     return any(map(lambda x: x.isupper(), s))
+#
+# def digit(s):
+#     return any(map(lambda x: x.isdigit(), s))
+#
+# s = input()
+# print('YES' if low(s) and up(s) and digit(s) and len(s) > 6 else 'NO')
+
+
+# from string import ascii_lowercase, ascii_uppercase, digits
+# p = input()
+# if len(p) >= 7 and any([True if i in p else False for i in digits]) and any([True if i in p else False for i in ascii_lowercase]) and any([True if i in p else False for i in ascii_uppercase]):
+#     print('YES')
+# else:
+#     print('NO')
+
+
+# password = input()
+#
+# passwords_errors = (
+#     len(password) < 7,
+#     password.lower() == password,
+#     password.upper() == password,
+#     password.isalpha(),
+#     password.isnumeric()
+# )
+#
+# if any(passwords_errors):
+#     print('NO')
+# else:
+#      print('YES')
+
+'''Отличники
+Учитель Тимур проверял контрольные работы по математике в нескольких классах онлайн-школы BEEGEEK и решил убедиться, 
+что в каждом классе есть хотя бы один отличник – ученик с оценкой 55 по контрольной работе. Напишите программу с 
+использованием встроенных функций all(), any() для помощи Тимуру в проверке.
+
+Формат входных данных
+На вход программе подается натуральное число nn – количество классов. Затем для каждого класса вводится блок 
+информации вида:
+
+натуральное число kk – количество учеников в классе;
+далее вводится kk строк вида: фамилия оценка.
+Формат выходных данных
+Программа должна вывести YES, если в каждом классе есть хотя бы один отличник, и NO в противном случае.
+
+Sample Input 1:
+
+4
+3
+Васечкин 4
+Илюшин 5
+Кривцов 3
+2
+Боталов 5
+Петров 5
+3
+Лебеда 4
+Ивлев 4
+Суворов 5
+2
+Ласкер 4
+Козлов 5
+Sample Output 1:
+
+YES'''
+
+
+# n = int(input())
+# res = []
+# for _ in range(n):
+#     tmp = any([int(input()[-1]) == 5 for _ in range(int(input()))])
+#     res.append(tmp)
+#
+# if all(res):
+#     print('YES')
+# else:
+#     print('NO')
+
+
+# print(["NO", "YES"][all([any([int(input().split()[1]) > 4 for _ in range(int(input()))]) for _ in range(int(input()))])])
+
+
+# n = int(input())
+# res = 0
+# for i in range(n):
+#     k = int(input())
+#     pupils = []
+#     for j in range(k):
+#         pupils.append(tuple(input().split()))
+#     res += any(map(lambda x: x[1] == '5', pupils))
+# print('YES' if res == n else 'NO')
+
+#
+# print("YES" if all([any(map(lambda x: int(x[1])==5,
+#                             [input().split() for i in range(int(input()))])) for _ in range(int(input()))]) else "NO")
+
+
+# x = []
+# for i in range(int(input())):
+#     x.append(any(map(lambda x: x[1] == '5', [input().split() for _ in range(int(input()))])))
+#     if x[i] == False: break
+# print('YES' if all(x) else 'NO')
