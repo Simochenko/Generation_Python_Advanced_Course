@@ -104,6 +104,7 @@ YES'''
 
 
 # print('YES' if sum([ord(i) for i in input()]) == sum([ord(i) for i in input()]) else 'NO')
+import re
 
 '''Анаграммы 2
 На вход программе подаются два предложения. Напишите программу, которая определяет, являются они анаграммами или нет. 
@@ -529,8 +530,88 @@ Sample Output:
 # for _ in range(int(input())):
 #     print(*d.get(input(), ['абонент не найден']))
 
-d = {}
-for i in [input().split() for _ in range(int(input()))]:
-    d.setdefault(i[1], []).append(i[0])
-for key in [input() for _ in range(int(input()))]:
-    print(*d[key] if key in d else ['абонент не найден'])
+# d = {}
+# for i in [input().split() for _ in range(int(input()))]:
+#     d.setdefault(i[1], []).append(i[0])
+# for key in [input() for _ in range(int(input()))]:
+#     print(*d[key] if key in d else ['абонент не найден'])
+
+
+'''Секретное слово
+Напишите программу для расшифровки секретного слова методом частотного анализа.
+
+Формат входных данных
+В первой строке задано зашифрованное слово. Во второй строке задано одно целое число nn – количество букв в словаре.
+ В следующих nn строках записано, сколько раз конкретная буква алфавита встречается в этом слове – <буква>: <частота>.
+
+Формат выходных данных
+Программа должна вывести дешифрованное слово.
+
+Примечание. Гарантируется, что частоты букв не повторяются.
+
+Sample Input 1:
+
+*!*!*?
+3
+а: 3
+н: 2
+с: 1
+Sample Output 1:
+
+ананас
+Sample Input 2:
+
+pop
+2
+д: 2
+е: 1
+Sample Output 2:
+
+дед'''
+
+
+# from collections import Counter
+#
+#
+# def get_dict_of_symbols(encrypted_str):
+#     symbols_dict = {}
+#     for char, number in Counter(encrypted_str).most_common():
+#         symbols_dict[number] = char
+#     return symbols_dict
+#
+#
+# def word_decoding(symbols_dict, encrypted_string):
+#     for _ in range(int(input())):
+#         letter, amount = input().split(': ')
+#         encrypted_string = encrypted_string.replace(symbols_dict[int(amount)], letter)
+#     return encrypted_string
+#
+#
+# def main():
+#     encrypted_string = input()
+#     symbols_dict = get_dict_of_symbols(encrypted_string)
+#     decoded_string = word_decoding(symbols_dict, encrypted_string)
+#     print(decoded_string)
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+
+# st = input()
+#
+# dic = {int(value): key for key, value in [input().split(': ') for i in range(int(input()))]}
+# [print(dic[st.count(i)], end='') for i in st]
+
+
+# s = input()
+# lst = [input().split(': ') for _ in range(int(input()))]
+# d = {int(b): a for a, b in lst}
+# [print(d[s.count(i)], end='') for i in s]
+
+
+# s = input()
+#
+# (lambda d: [print(d[s.count(i)], end='') for i in s])({
+#     int(b): a for a, b in [input().split(': ') for _ in range(int(input()))]})
+

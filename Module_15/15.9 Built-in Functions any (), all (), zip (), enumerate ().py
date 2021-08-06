@@ -775,3 +775,140 @@ YES'''
 #     x.append(any(map(lambda x: x[1] == '5', [input().split() for _ in range(int(input()))])))
 #     if x[i] == False: break
 # print('YES' if all(x) else 'NO')
+
+'''Внутри шара
+На вход программе подаются три строки текста с вещественными числами, значениями абсцисс (xx), ординат (yy) и
+ аппликат (zz) точек трехмерной плоскости. Напишите программу для проверки расположения всех точек с введенными 
+ координатами внутри либо на поверхности шара с центром в начале координат и радиусом R = 2R =2.
+
+Формат входных данных
+На вход программе подаются три строки текста с вещественными числами, разделенными символом пробела – абсциссы, 
+ординаты и аппликаты точек в трехмерной системе координат.
+
+Формат выходных данных
+Программа должна вывести True если все точки с введенными координатами находятся внутри или на границе шара и
+ False, если вне.
+
+Примечание 1. Гарантируется, что количество чисел во всех трех строках одинаковое.
+
+Примечание 2. Уравнение шара имеет вид x^2+y^2+z^2 = R^2x 
+2
+ +y 
+2
+ +z 
+2
+ =R 
+2
+ .
+
+Примечание 3. Для решения задачи используйте встроенные функции all() и zip().
+
+Примечание 4. Используйте следующие названия abscissas, ordinates, applicates для соответствующих списков.
+
+Примечание 5. Указанный шар имеет вид:
+
+
+
+Sample Input 1:
+
+0.0 1.0 2.0
+0.0 0.0 1.1
+0.0 1.0 1.5
+Sample Output 1:
+
+False
+Sample Input 2:
+
+0.0 0.0
+1.5 0.0
+1.1 1.1
+Sample Output 2:
+
+True
+Sample Input 3:
+
+0.637 -0.411 -0.247 1.658 0.061
+-0.78 -1.374 0.762 0.306 -0.614
+-1.317 -0.444 -0.572 -0.341 0.295
+Sample Output 3:
+
+True'''
+
+# abscissas = [float(el) for el in input().split()]
+# ordinates = [float(el) for el in input().split()]
+# applicates = [float(el) for el in input().split()]
+# print(all([bool(el[0] ** 2 + el[1] ** 2 + el[2] ** 2 <= 4) for el in zip(abscissas, ordinates, applicates)]))
+
+
+# abscissas, ordinates, applicates=(map(float, input().split()) for _ in range(3))
+# # print(all(map(lambda x, y, z: (x**2+y**2+z**2)**0.5 <=2, abscissas,ordinates,applicates)))
+# print(all(x**2 + y**2 + z**2 <= 4 for x, y, z in zip(abscissas, ordinates, applicates)))\
+
+# abscissas = [float(i) for i in input().split()]
+# ordinates = [float(i) for i in input().split()]
+# applicates = [float(i) for i in input().split()]
+#
+# print(all(map(lambda x: x[0]**2 + x[1]**2 + x[2]**2 <= 4, zip(abscissas, ordinates, applicates))))
+
+
+# def is_inside(x, y, z):
+#     abscissas = [*map(float, x.split())]
+#     ordinates = [*map(float, y.split())]
+#     applicates = [*map(float, z.split())]
+#     l = list(zip(abscissas, ordinates, applicates))
+#     res = all(map(lambda el: True if el[0]**2+el[1]**2+el[2]**2<=4 else False, l))
+#     if res:
+#         return True
+#     else:
+#         return False
+#
+# a=input()
+# b=input()
+# c=input()
+# print(is_inside(a, b, c))
+
+'''Интересные числа
+На вход программе подаются два натуральных числа aa и bb. Напишите программу с использованием встроенной функции 
+all() для обнаружения всех чисел в диапазоне [a; \, b][a;b], которые делятся на каждую содержащуюся в них цифру.
+
+Формат входных данных
+На вход программе подаются два натуральных числа aa и bb на отдельных строках.
+
+Формат выходных данных
+Программа должна вывести все числа из диапазона [a; \, b][a;b], удовлетворяющие условию задачи, на одной строке, 
+разделяя их символом пробела.
+
+Примечание. Числа, содержащие нули, неинтересны, их выводить не нужно.
+
+Sample Input 1:
+
+1
+25
+Sample Output 1:
+
+1 2 3 4 5 6 7 8 9 11 12 15 22 24
+Sample Input 2:
+
+20
+30
+Sample Output 2:
+
+22 24'''
+
+# a,b = int(input()),int(input())
+# print(*[i for i in range(a, b + 1) if all(int(j) and not i % int(j) for j in str(i))])
+
+
+# def check(num):
+#     return all(map(lambda x: int(x) and num % int(x) == 0, str(num)))
+#
+# a, b = int(input()), int(input())
+# seq = range(a, b + 1)
+# print(*list(filter(lambda x: check(x), seq)))
+
+
+# print(*[i for i in range(int(input()), int(input())+1) if all([j!="0" and i%int(j)==0 for j in str(i) ]) and i %10!=0 ])
+
+
+# a,b = int(input()),int(input())
+# print(*[i for i in range(a,b+1) if all(int(j) and not i%int(j)  for j in str(i))])
