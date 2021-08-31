@@ -489,3 +489,5 @@ True
 # func = lambda x: (x[0] + x[-1]).lower() == 'aa'
 
 # func = lambda x: x.lower().startswith('a') and x.lower().endswith('a')
+
+

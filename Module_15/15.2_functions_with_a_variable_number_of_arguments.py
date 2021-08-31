@@ -467,10 +467,139 @@ last_name: Guev
 #
 # info_kwargs(first_name='Timur', last_name='Guev', age=28, job='teacher')
 
-def mean(*nums):
-    for i in nums:
-        if i:
-            return sum(nums, 0.0) / len(nums)
+# def mean(*nums):
+#     for i in nums:
+#         if i:
+#             return sum(nums, 0.0) / len(nums)
+#
+#
+# print(mean(1.5, True, ['stepik'], 'beegeek', 2.5))
 
 
-print(mean(1.5, True, ['stepik'], 'beegeek', 2.5))
+
+"""
+Напишите функцию greet(), которая принимает произвольное количество аргументов строк имен (как минимум одно) и возвращает приветствие в соответствии с образцом.
+Примечание 1. Обратите внимание, что функция должна принимать не список, а именно произвольное количество аргументов.
+Примечание 2. Следующий программный код:
+print(greet('Timur'))
+print(greet('Timur', 'Roman'))
+print(greet('Timur', 'Roman', 'Ruslan'))
+должен выводить:
+Hello, Timur!
+Hello, Timur and Roman!
+Hello, Timur and Roman and Ruslan!
+Примечание 3. Функция greet() должна принимать как минимум один обязательный аргумент!
+Примечание 4. Вызывать функцию greet() не нужно, требуется только реализовать.
+"""
+
+
+# def greet(name, *args):
+#     res = "Hello, " + name
+#     if len(args) > 0:
+#         res += " and " + " and ".join(args)
+#     res += "!"
+#     return res
+#
+#
+# print(greet('Timur'))
+# print(greet('Timur', 'Roman'))
+# print(greet('Timur', 'Roman', 'Ruslan'))
+
+
+
+# def greet(name, *args):
+#     return f'Hello, {" and ".join((name,) + args)}!'
+
+
+# def greet(name, *args):
+#     return "Hello, " + " and ".join([name] + [c  for c in args]) +"!"
+
+
+# Напишите функцию mean(), которая принимает произвольное количество аргументов и возвращает среднее арифметическое переданных в нее числовых (int или float) аргументов.
+#
+# Примечание 1. Обратите внимание, что функция должна принимать не список, а именно произвольное количество аргументов.
+#
+# Примечание 2. Функция должна игнорировать аргументы всех типов, кроме int или float.
+#
+# Примечание 3. Следующий программный код:
+#
+# print(mean())
+# print(mean(7))
+# print(mean(1.5, True, ['stepik'], 'beegeek', 2.5, (1, 2)))
+# print(mean(True, ['stepik'], 'beegeek', (1, 2)))
+# print(mean(-1, 2, 3, 10, ('5')))
+# print(mean(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+# должен выводить:
+#
+# 0.0
+# 7.0
+# 2.0
+# 0.0
+# 3.5
+# 5.5
+#
+# def mean(*args):
+#     sum = 0
+#     count = 0
+#     for i in args:
+#         if type(i) is float or type(i) is int:
+#             sum += i
+#             count +=1
+#         else:
+#             continue
+#     if count == 0:
+#        return 0.0
+#     else:
+#        return sum / count
+#
+#
+# print(mean())
+# print(mean(7))
+# print(mean(1.5, True, ['stepik'], 'beegeek', 2.5, (1, 2)))
+# print(mean(True, ['stepik'], 'beegeek', (1, 2)))
+# print(mean(-1, 2, 3, 10, ('5')))
+# print(mean(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+#
+
+# def mean(*args):
+#     nums = [i for i in args if type(i) in (int, float)]
+#     if len(nums) > 0:
+#         return sum(nums) / len(nums)
+#     else:
+#         return 0
+
+
+# def mean(*args):
+#     a = [i for i in args if type(i) in (int, float)]
+#     return sum(a) / len(a) if a else 0
+
+# def mean(*args):
+#     x = [i for i in args if type(i) in (int, float)]
+#     return sum(x)/(len(x) + (len(x) == 0))
+
+
+# Напишите функцию print_products(), которая принимает произвольное количество аргументов и выводит список продуктов (любая непустая строка) по образцу: <номер продукта>) <название продукта> (нумерация продуктов начинается с единицы). Если среди переданных аргументов нет ни одного продукта, необходимо вывести текст Нет продуктов.
+#
+# Примечание 1. Обратите внимание, что функция должна принимать не список, а именно произвольное количество аргументов.
+#
+# Примечание 2. Числа, списки, кортежи, словари, множества и другие нестроковые объекты продуктами не являются и их нужно игнорировать.
+
+# def print_products(*args):
+#     """
+#     Put here description about your fonction like that
+#     """
+#     count = 0
+#     for i in args:
+#         if count == 0:
+#             pass
+#         if type(i) is str and len(i)!=0:
+#             count += 1
+#             print(f"{count}) {i}")
+#         else:
+#             pass
+#     if count == 0:
+#         print("Нет продуктов")
+#
+#
+# print_products('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
+# print_products([4], {}, 1, 2, {'Beegeek'}, '')
