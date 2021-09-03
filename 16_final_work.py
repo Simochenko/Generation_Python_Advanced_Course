@@ -520,7 +520,12 @@ Sample Output:
 172.67.222.111
 203.13.32.156'''
 
-ips = [input().split('.') for _ in range(int(input()))]
-ips = sorted(ips, key=lambda ip: (int(ip[0]) * 256 ** 3 + int(ip[1]) * 256 ** 2 + int(ip[2]) * 256 ** 1 + int(ip[3] * 256 ** 0)))
-for ip in ips:
-    print('.'.join(ip))
+# ips = [input().split('.') for _ in range(int(input()))]
+# ips = sorted(ips, key=lambda ip: (int(ip[0]) * 256 ** 3 + int(ip[1]) * 256 ** 2 + int(ip[2]) * 256 ** 1 + int(ip[3] * 256 ** 0)))
+# for ip in ips:
+#     print('.'.join(ip))
+
+with open('goats.txt') as f1, open('answer.txt', 'w') as f2:
+    cont = f1.read().split('\n')
+    colors, goats = cont[1:cont.index('GOATS')], cont[cont.index('GOATS')+1:]
+    print(*sorted(filter(lambda x: goats.count(x) / len(goats) > 0.07, colors)), sep='\n', file=f2)
